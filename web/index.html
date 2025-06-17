@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="/firebase-messaging-sw.js"></script>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -34,5 +35,19 @@
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
+ <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('firebase-messaging-sw.js')
+      .then(function (registration) {
+        console.log('✅ Service Worker registered:', registration);
+      })
+      .catch(function (err) {
+        console.error('❌ Service Worker registration failed:', err);
+      });
+  }
+</script>
+
+
 </body>
 </html>

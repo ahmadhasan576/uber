@@ -1,6 +1,7 @@
-import 'package:driver_app/tabPages/earning_tab.dart';
 import 'package:driver_app/tabPages/home_tab.dart';
-import 'package:driver_app/tabPages/ratings_tab.dart';
+import 'package:driver_app/tabPages/profil_tab.dart';
+import 'package:driver_app/tabPages/trip_request_page.dart';
+
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _MainScreen extends State<MainScreen>
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(length: 4, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -32,22 +33,14 @@ class _MainScreen extends State<MainScreen>
         physics: NeverScrollableScrollPhysics(),
         controller: tabController,
         children: [
-          HomeTab(),
-          const EarningTabPage(),
-          const RatingsTabPage(),
-          HomeTab(),
+          // HomeTab(),
+          TripRequestsPage(),
+          DriverProfileScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
-            label: "Earning",
-          ),
-
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Rating"),
 
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account"),
         ],
